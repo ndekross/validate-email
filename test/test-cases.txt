@@ -1,0 +1,22 @@
+natanael@dekross.com*true
+tim.cook@apple.com*true
+nadella@mail.yahoo.com*true
+"info"@bestbuy.com*true
+_____@csdn.net*true
+12471@twitch.tv*true
+kermit+brain@gmail.com*true
+dread-pirate-roberts@yahoo.com*true
+peter_pan@yandex.com*true
+email@somenonexistentdomainthatsucks.io*No MX records detected for the hostname
+plainaddress*Missing @ sign
+@domain.com*Missing username
+hello@world.invalid*The top level domain doesn't exist
+Joe Smith <email@domain.com>*Encoded html within email is invalid
+email.domain.com*Missing @ sign
+email@domain@domain.com*More than one @ signs
+.email@domain.com*Leading dot in address is not allowed
+email.@domain.com*Trailing dot in address is not allowed
+email..email@domain.com*Multiple dots are not allowed
+email@domain.com (Joe Smith)*Text followed email is not allowed
+email@domain*Missing top level domain (.com/.net/.org/etc)
+email@domain..com*Multiple dots are not allowed

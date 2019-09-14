@@ -1,0 +1,24 @@
+{
+  "name": "email-validity",
+  "version": "0.1.0",
+  "description": "Checks email validity, returns Boolean",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^2.3.0",
+    "chai": "^4.2.0",
+    "jest": "^24.9.0",
+    "lodash": "^4.17.15",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "tap": "^14.6.2"
+  },
+  "ava": {
+    "verbose": true,
+    "color": true
+  }
+}
