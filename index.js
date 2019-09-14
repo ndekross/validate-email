@@ -8,6 +8,12 @@ class EmailError extends Error{
   }
 }
 
+const defaultOptions = {
+  regexp: true,
+  tld: true,
+  mx: true,
+};
+
 // Email pattern from 
 // https://emailregex.com
 const defaultPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,11 +46,6 @@ function validateMx(domain, timeout = 500, maxAttempts = 2){
   });
 }
 
-const defaultOptions = {
-  regexp: true,
-  tld: true,
-  mx: true,
-};
 
 
 function validateEmail(email, options = defaultOptions){
@@ -65,7 +66,7 @@ function validateEmail(email, options = defaultOptions){
       } catch (error) {
         if (error.code === "ENOTFOUND") 
           return  reject("The hostname doesn't exist");
-        else return error;
+        return error;
       }
     }
     return resolve(true);
@@ -104,14 +105,11 @@ function detectProblem(input){
       if (local.length === 0) 
       throw new EmailError("Missing username");
 
-      if (/^\.+/.test(local)) 
-      throw new EmailError("Leading dot in address is not allowed");
-
       if (/\.+$/.test(local))
       throw new EmailError("Trailing dot in address is not allowed");
 
       else
-      throw new EmailError("The provided email address is not valid");
+        throw new EmailError("The provided email address is not valid");
 }
 
 module.exports = validateEmail;

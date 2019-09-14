@@ -13,6 +13,7 @@ plainaddress*Missing @ sign
 hello@world.invalid*The top level domain doesn't exist
 Joe Smith <email@domain.com>*Encoded html within email is invalid
 email.domain.com*Missing @ sign
+email@-domain.com*Leading dash in front of domain is invalid
 email@domain@domain.com*More than one @ signs
 .email@domain.com*Leading dot in address is not allowed
 email.@domain.com*Trailing dot in address is not allowed

@@ -1,6 +1,5 @@
 const test = require('ava');
 const validateEmail = require('../index');
-const {performance} = require('perf_hooks');
 const fs = require('fs');
 
 function readEmailsFrom(list) {
@@ -14,14 +13,14 @@ function readEmailsFrom(list) {
   });
 }
 
-readEmailsFrom('test-cases').then(cases => {
-  for (let [email, result] of cases.map(tc => tc.split('*'))) {
+readEmailsFrom('test-cases').then(testCases => {
+  testCases.map(tc => tc.split('*')).forEach(([email, result]) => {
     test(`validateEmail('${email}') —> ${result}`, t => {
       return validateEmail(email)
         .then(validity => t.true(validity))
         .catch(error => t.assert(error.message === result));
     });
-  }
+  });
 });
 
 
